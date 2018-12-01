@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
-import { CalculatorService } from '../calculator.service';
+import { CalculatorService, CalculatorResults } from '../calculator.service';
 
 @Component({
   selector: 'app-calculator',
@@ -9,6 +9,8 @@ import { CalculatorService } from '../calculator.service';
   styleUrls: ['./calculator.component.less']
 })
 export class CalculatorComponent implements OnInit {
+
+  public result: CalculatorResults;
 
   constructor(
     private cService: CalculatorService,
@@ -18,6 +20,6 @@ export class CalculatorComponent implements OnInit {
   }
 
   public formSubmit(f: FormGroup): void {
-    console.log(f.value);
+    this.result = this.cService.calculate(f.value);
   }
 }
