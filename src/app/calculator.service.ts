@@ -71,7 +71,5 @@ export class CalculatorService {
       maxRange,
       sqkm
     };
-    // maxRange.toFixed(0).toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + " m";
-    // sqkm.toFixed(0).toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1 ') + " sq.km";
   }
 }
