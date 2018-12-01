@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+
+import { CalculatorService } from '../calculator.service';
 
 @Component({
   selector: 'app-calculator',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalculatorComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cService: CalculatorService,
+  ) { }
 
   ngOnInit() {
   }
 
+  public formSubmit(f: FormGroup): void {
+    console.log(f.value);
+  }
 }
