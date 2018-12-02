@@ -14,7 +14,7 @@
   <div class="row m-b-15">
     <div class="col-md-6">
       <label class="control-label">Gateway sensitivity (dBm)<span class="text-danger">*</span></label>
-      <mat-slider name="gatewaySensitivity" ngModel class="form-control-range" min="-164" max="-124" thumbLabel required>
+      <mat-slider name="gatewaySensitivity" ngModel class="form-control-range" min="-164" max="-124" [invert]="true" thumbLabel required>
       </mat-slider>
     </div>
     <div class="col-md-6">
