@@ -6,7 +6,7 @@ export interface CalculatorOptions {
   gatewaySensitivity: number;
   gatewayAntennaGain: number;
   gatewayNoise: number;
-  rcMode: 'City' | 'Rural';
+  isRural: boolean;
   gatewayHeight: number;
   endNodeHeight: number;
   frequency: 500 | 868 | 2400;
@@ -47,7 +47,7 @@ export class CalculatorService {
     const linkBudget = nP + nATX - gSens + gAG - gN; // link budget in dBm
 
     var pleVal;
-    if (opts.rcMode == "Rural") {
+    if (opts.isRural) {
       pleVal = ple[0];
     } else {
       pleVal = ple[1];
