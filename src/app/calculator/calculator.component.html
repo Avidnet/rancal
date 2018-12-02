@@ -1,46 +1,46 @@
-<form #f="ngForm" (ngSubmit)="formSubmit(f)" class="margin-bottom-0">
+<form (valueChanges)="calculate()" class="margin-bottom-0">
   <div class="row m-b-15">
     <div class="col-md-6">
       <label class="control-label">Node Power (dB)<span class="text-danger">*</span></label>
-      <mat-slider name="nodePower" ngModel class="form-control-range" min="0" max="30" thumbLabel required>
+      <mat-slider name="nodePower" [(ngModel)]="model.nodePower" class="form-control-range" min="0" max="30" thumbLabel>
       </mat-slider>
     </div>
     <div class="col-md-6">
       <label class="control-label">Node antenna TX (dB)<span class="text-danger">*</span></label>
-      <mat-slider name="nodeAntennaTX" ngModel class="form-control-range" min="0" max="10" thumbLabel required>
+      <mat-slider name="nodeAntennaTX" [(ngModel)]="model.nodeAntennaTX" class="form-control-range" min="0" max="10" thumbLabel>
       </mat-slider>
     </div>
   </div>
   <div class="row m-b-15">
     <div class="col-md-6">
       <label class="control-label">Gateway sensitivity (dBm)<span class="text-danger">*</span></label>
-      <mat-slider name="gatewaySensitivity" ngModel class="form-control-range" min="-164" max="-124" [invert]="true" thumbLabel required>
+      <mat-slider name="gatewaySensitivity" [(ngModel)]="model.gatewaySensitivity" class="form-control-range" min="-164" max="-124" [invert]="true" thumbLabel required>
       </mat-slider>
     </div>
     <div class="col-md-6">
       <label class="control-label">Gateway antenna gain (dBm)<span class="text-danger">*</span></label>
-      <mat-slider name="gatewayAntennaGain" ngModel class="form-control-range" min="0" max="30" thumbLabel required>
+      <mat-slider name="gatewayAntennaGain" [(ngModel)]="model.gatewayAntennaGain" class="form-control-range" min="0" max="30" thumbLabel required>
       </mat-slider>
     </div>
   </div>
   <div class="row m-b-15">
     <div class="col-md-6">
       <label class="control-label">Gateway noise (dB)<span class="text-danger">*</span></label>
-      <mat-slider name="gatewayNoise" ngModel class="form-control-range" min="0" max="30" thumbLabel required>
+      <mat-slider name="gatewayNoise" [(ngModel)]="model.gatewayNoise" class="form-control-range" min="0" max="30" thumbLabel required>
       </mat-slider>
     </div>
     <div class="col-md-6">
       <label class="control-label">Frequency <span class="text-danger">*</span></label>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="500" name="frequency" [value]="500" ngModel required/>
+        <input class="form-check-input" type="radio" id="500" name="frequency" [value]="500" [(ngModel)]="model.frequency"/>
         <label class="form-check-label" for="500">500 MHz</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="868" name="frequency" [value]="868" ngModel/>
+        <input class="form-check-input" type="radio" id="868" name="frequency" [value]="868" [(ngModel)]="model.frequency"/>
         <label class="form-check-label" for="868">868 / 915 MHz</label>
       </div>
       <div class="form-check">
-        <input class="form-check-input" type="radio" id="2400" name="frequency" [value]="2400" ngModel/>
+        <input class="form-check-input" type="radio" id="2400" name="frequency" [value]="2400" [(ngModel)]="model.frequency"/>
         <label class="form-check-label" for="2400">2.4 GHz</label>
       </div>
     </div>
@@ -48,39 +48,42 @@
   <div class="row m-b-15">
     <div class="col-md-6">
       <label class="control-label">Gateway height (m)<span class="text-danger">*</span></label>
-      <mat-slider name="gatewayHeight" ngModel class="form-control-range" min="1" max="300" thumbLabel required>
+      <mat-slider name="gatewayHeight" [(ngModel)]="model.gatewayHeight" class="form-control-range" min="1" max="300" thumbLabel required>
       </mat-slider>
     </div>
     <div class="col-md-6">
       <label class="control-label">End node height (m)<span class="text-danger">*</span></label>
-      <mat-slider name="endNodeHeight" ngModel class="form-control-range" min="1" max="10" thumbLabel required>
+      <mat-slider name="endNodeHeight" [(ngModel)]="model.endNodeHeight" class="form-control-range" min="1" max="10" thumbLabel required>
       </mat-slider>
     </div>
   </div>
   <div class="row m-b-15">
-    <mat-slide-toggle ngModel name="rcMode">
+    <mat-slide-toggle [(ngModel)]="model.isRural" name="isRural">
       City | Rural
     </mat-slide-toggle>
   </div>
-  <div class="register-buttons">
-    <button type="submit" class="btn btn-success btn-block btn-lg" [disabled]="f.invalid">Let's Go</button>
-  </div>
 </form>
+<hr>
+<div class="row">
+  <pre>
+  {{ model | json }}
+  </pre>
+</div>
 <hr>
 <div class="row">
   <table class="table">
     <tbody>
       <tr>
         <th>Link Budget</th>
-        <td>{{ result?.linkBudget.toString() }} dBm</td>
+        <td>{{ result.linkBudget.toString() }} dBm</td>
       </tr>
       <tr>
         <th>Maximum Range</th>
-        <td>{{ result?.maxRange.toFixed(0).toString()}} m</td>
+        <td>{{ result.maxRange.toFixed(2).toString()}} m</td>
       </tr>
       <tr>
         <th>Maximum Range</th>
-        <td>{{ result?.sqkm.toFixed(0).toString() }} sq.Km</td>
+        <td>{{ result.sqkm.toFixed(2).toString() }} sq.Km</td>
       </tr>
     </tbody>
   </table>

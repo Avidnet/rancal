@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
 
-import { CalculatorService, CalculatorResults } from '../calculator.service';
+import { CalculatorService, CalculatorResults, CalculatorOptions } from '../calculator.service';
 
 @Component({
   selector: 'app-calculator',
@@ -10,7 +9,17 @@ import { CalculatorService, CalculatorResults } from '../calculator.service';
 })
 export class CalculatorComponent implements OnInit {
 
-  public result: CalculatorResults;
+  public model: CalculatorOptions = {
+    nodePower: 14,
+    nodeAntennaTX: 0,
+    gatewaySensitivity: -137,
+    gatewayAntennaGain: 10,
+    gatewayNoise: 10,
+    isRural: true,
+    gatewayHeight: 25,
+    endNodeHeight: 1,
+    frequency: 868,
+  }
 
   constructor(
     private cService: CalculatorService,
@@ -19,7 +28,7 @@ export class CalculatorComponent implements OnInit {
   ngOnInit() {
   }
 
-  public formSubmit(f: FormGroup): void {
-    this.result = this.cService.calculate(f.value);
+  public get result(): CalculatorResults {
+    return this.cService.calculate(this.model);
   }
 }
