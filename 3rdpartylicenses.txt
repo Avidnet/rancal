@@ -357,6 +357,9 @@ MIT
 
 @angular/material/slide-toggle
 
+@angular/service-worker
+MIT
+
 zone.js
 MIT
 The MIT License
