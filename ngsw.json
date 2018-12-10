@@ -7,6 +7,7 @@
       "installMode": "prefetch",
       "updateMode": "prefetch",
       "urls": [
+        "/rancal/favicon.png",
         "/rancal/index.html",
         "/rancal/main.14a3b6452ad567f7d687.js",
         "/rancal/polyfills.20ab2d163684112c2aba.js",
@@ -148,6 +149,7 @@
     "/rancal/assets/less/images/transparent/white-0.98.png": "418353a6eff37d18d77fa935bc3c1da3160b1dc0",
     "/rancal/assets/less/style.less": "921cb3beac392ea5bdef9f520a6acbcb8c205ce9",
     "/rancal/assets/less/theme/_default.less": "7a870cc34ec67468cec4379c940a5e51f76f4cac",
+    "/rancal/favicon.png": "7730647de64872a3bb5ecbd61c59259448bf0614",
     "/rancal/index.html": "70ecb65531ffdc4cf752d078b8eb774b2c28285f",
     "/rancal/main.14a3b6452ad567f7d687.js": "64539dff01ed4403462b1024b5d22f75ad8ecdbd",
     "/rancal/polyfills.20ab2d163684112c2aba.js": "ce68d153e9b9b6d26b625069c0ee99ae09c6f255",
