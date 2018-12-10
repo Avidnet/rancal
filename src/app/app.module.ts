@@ -6,6 +6,8 @@ import { MatSliderModule, MatSlideToggleModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { CalculatorComponent } from './calculator/calculator.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
     BrowserAnimationsModule,
     MatSliderModule,
     MatSlideToggleModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
